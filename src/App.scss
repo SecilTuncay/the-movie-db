@@ -7,16 +7,6 @@
     font-family: $font-family;
 }
 
-a {
-    text-decoration: none;
-    color: $dark-font-default-color;
-    padding: 0.5rem 0rem !important;
-    &:hover {
-        text-decoration: none !important;
-        color: cyan !important;
-    }
-}
-
 p {
     margin: 0;
 }
@@ -28,6 +18,10 @@ body {
 
 h1 {
     font-size: $page-header-font-size;
+}
+
+.active {
+    color: green!important;
 }
 
 .switch-icon {
@@ -77,26 +71,17 @@ h1 {
                 background: none;
             }
         }
-    }
-    /*header ends*/
-    .navbar-dark {
-        .navbar-nav {
-            .nav-link {
-                color: $dark-font-default-color !important;
-                padding: 0.5rem 0rem !important;
-                &:hover {
-                    color: $dark-hover-color!important;
-                }
+        a {
+            text-decoration: none;
+            color: $dark-font-default-color;
+            padding: 0.5rem 0rem !important;
+            &:hover {
+                text-decoration: none !important;
+                color: $dark-hover-color !important;
             }
         }
     }
-    .suggestionCont {
-        width: 150px;
-        height: 150px;
-        border: 1px red solid;
-        color: $dark-font-default-color;
-    }
-    /*Header ends*/
+    /*header ends*/
     /*Loading */
     .loading {
         $colors: $dark-font-default-color, #9fa3a8, #696d72, #4f545a, $dark-banner-color;
@@ -145,6 +130,9 @@ h1 {
         color: $dark-font-default-color;
         height: auto;
         background-color: $dark-banner-color;
+        &__header {
+            padding: 0.75rem 0.5rem;
+        }
         &__image {
             object-fit: contain;
             @include transitionProperty;
@@ -152,6 +140,13 @@ h1 {
                 transform: scale(1.35);
                 @include transitionProperty;
             }
+        }
+        &__badge {
+            width: 2.1rem;
+            height: 2.1rem;
+            font-size: $default-font-size;
+            background: url("./images/certificate-solid.svg") no-repeat;
+            padding: 0.28rem 0rem;
         }
         &__link {
             padding: 0!important;
@@ -169,7 +164,7 @@ h1 {
             height: 3rem;
         }
         &__btns {
-            font-size: $small-font-size;
+            font-size: $default-font-size;
             cursor: pointer;
         }
         &__popularity {
@@ -177,6 +172,25 @@ h1 {
         }
     }
     /*Movie Card Ends*/
+    /* Pagination */
+    .movie-pagination {
+        font-size: 1rem;
+        .page-item {
+            .active {
+                color: $dark-hover-color;
+            }
+            a {
+                position: relative;
+                display: block;
+                padding: 0.5rem 0.75rem;
+                margin-left: -1px;
+                line-height: 1.25;
+                background-color: $dark-banner-color;
+                border: 1px solid $dark-banner-color;
+            }
+        }
+    }
+    /* Pagination Ends */
     /*Movie Detai Ends*/
     .detail-card-cont {
         color: $dark-font-default-color;

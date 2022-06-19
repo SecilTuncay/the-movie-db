@@ -58,7 +58,7 @@ const TrendingMovies = () => {
 						marginPagesDisplayed={4}
 						pageRangeDisplayed={4}
 						onPageChange={handlePageClick}
-						containerClassName={"pagination mt-2 justify-content-center"}
+						containerClassName={"pagination mt-3 justify-content-center movie-pagination"}
 						pageClassName={"page-item"}
 						pageLinkClassName={"page-link"}
 						previousClassName={"page-item"}
