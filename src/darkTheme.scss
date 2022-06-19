@@ -1,0 +1,257 @@
+@import "../src/common/defaults.scss";
+
+.darkMode {
+	/*Header*/
+.brand-md{
+  color:$dark-font-default-color
+}
+	.navbar--header {
+		background-color: $dark-banner-color;
+	}
+
+	.nav-bar .nav-link {
+		color: $dark-font-default-color !important;
+		padding: 0.5rem 0rem !important;
+
+		&:hover {
+			text-decoration: none !important;
+		}
+	}
+	.suggestionCont {
+		width: 150px;
+		height: 150px;
+		border: 1px red solid;
+		color: $dark-font-default-color;
+	}
+	.search-bar {
+		form {
+			button {
+				padding: 0px 8px;
+				font-size: 14px;
+				cursor: pointer;
+				height: 28px;
+			}
+			input {
+				font-size: 14px;
+				padding: 5px 5px 5px 10px;
+				height: 28px;
+				outline: none;
+			}
+		}
+
+		.suggestions-cont {
+			color: $dark-main-bg-color;
+			position: absolute;
+			width: 183px;
+			height: auto;
+			top: 54px;
+			background: $dark-font-default-color;
+			z-index: 2;
+			.suggestion-item {
+			}
+		}
+	}
+	/*Header ends*/
+	/*Loading */
+	.loading {
+		$colors: $dark-font-default-color, #9fa3a8, #696d72, #4f545a,
+			$dark-banner-color;
+		display: flex;
+		.loading-row {
+			height: 50vh;
+		}
+
+		.dot {
+			position: relative;
+			width: 0.5em;
+			height: 0.5em;
+			margin: 0.8em;
+			border-radius: 50%;
+
+			&::before {
+				position: absolute;
+				content: "";
+				width: 100%;
+				height: 100%;
+				background: inherit;
+				border-radius: inherit;
+				animation: wave 2s ease-out infinite;
+			}
+
+			@for $i from 1 through 5 {
+				&:nth-child(#{$i}) {
+					background: nth($colors, $i);
+
+					&::before {
+						animation-delay: $i * 0.2s;
+					}
+				}
+			}
+		}
+	}
+
+	@keyframes wave {
+		50%,
+		75% {
+			transform: scale(2.5);
+		}
+
+		80%,
+		100% {
+			opacity: 0;
+		}
+	}
+	/*Loading ends*/
+	/*Movie Card*/
+
+	.card-cont {
+		color: $dark-font-default-color;
+		height: auto;
+		background-color: $dark-banner-color;
+		.card-image {
+			width: 100%;
+			height: 25vh;
+			object-fit: contain;
+		}
+		a {
+			text-decoration: none;
+			color: $dark-font-default-color;
+		}
+		.card-overview {
+			font-size: $button-font-size;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		.card-title {
+			font-size: $cart-header-font-size;
+			display: block;
+		}
+		.card-body {
+			height: 100px;
+		}
+		.card-btns {
+			font-size: $button-font-size;
+			cursor: pointer;
+		}
+		.card-header {
+			border-bottom: 1px dashed rgba(255, 255, 255, 0.178);
+			padding: 0.75rem 0rem;
+		}
+		.card-popularity {
+			font-size: $button-font-size;
+		}
+		.card-footer {
+			position: absolute;
+			bottom: 0px;
+		}
+	}
+	/*Movie Card Ends*/
+	/*Movie Detai Ends*/
+	.detail-card-cont {
+		color: $dark-font-default-color;
+		height: 50vh;
+		background-color: $dark-banner-color;
+		.detail-card-image {
+			object-fit: contain;
+		}
+		a {
+			text-decoration: none;
+			font-size: $dark-font-default-color;
+		}
+		.detail-card-overview {
+			font-size: $button-font-size;
+		}
+
+		.detail-card-title {
+			font-size: $detail-font-size;
+			display: block;
+			height: 30px;
+		}
+		.detail-card-btns {
+			font-size: $button-font-size;
+			cursor: pointer;
+		}
+		.detail-card-header {
+			border-bottom: 1px dashed rgba(255, 255, 255, 0.178);
+			padding: 0.75rem 0rem;
+		}
+		.detail-tagline {
+			font-style: italic;
+			font-size: $page-header-font-size;
+		}
+	}
+
+	.cast-container {
+		.cast-header {
+			font-size: $detail-font-size;
+			color: $dark-font-default-color;
+      text-align: center;
+		}
+		.card-cast-image {
+			object-fit: contain;
+			width: 100%;
+		}
+		.card-cast-actor-cont {
+			color: $dark-font-default-color;
+			font-size: $button-font-size;
+		}
+		.card-cast-actor {
+			text-align: center;
+		}
+		.card-cast-role {
+			font-style: italic;
+			text-align: center;
+		}
+		.cast-header {
+			text-align: center;
+		}
+	}
+	/*Movie Detai Ends*/
+	/*Error*/
+	.error-page {
+		img {
+			max-width: 55%;
+			height: auto;
+		}
+	}
+	/*Error Ends*/
+	/*Trending Movies*/
+
+	.movie-list,
+	.show-list {
+		margin: 20px 0px;
+		h2 {
+			color: $dark-font-default-color;
+			margin-bottom: 10px;
+			font-weight: 400;
+			font-size: 20px;
+		}
+	}
+
+	.movie-wrapper {
+		h1 {
+			color: $dark-font-default-color;
+			font-size: $page-header-font-size;
+		}
+
+	}
+
+	.movies-error {
+		width: 100%;
+		color: red;
+	}
+	.denemeClass {
+		background-color: red;
+		color: white;
+	}
+	/*Trending Movies ends*/
+	/*Footer*/
+	footer {
+		background: $dark-banner-color;
+		font-size: 12px;
+    color:$dark-font-default-color
+	}
+	/*Footer ends*/
+}

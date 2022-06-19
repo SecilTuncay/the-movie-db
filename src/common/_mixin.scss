@@ -1,0 +1,5 @@
+@use "./defaults.scss";
+@mixin transitionProperty {
+    transition-duration: 750ms;
+    transition-property: all;
+}
