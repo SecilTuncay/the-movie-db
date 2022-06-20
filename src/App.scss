@@ -20,9 +20,7 @@ h1 {
     font-size: $page-header-font-size;
 }
 
-.active {
-    color: green!important;
-}
+
 
 .switch-icon {
     font-size: 1.5rem;
@@ -52,7 +50,7 @@ h1 {
             background-color: $dark-banner-color;
         }
         &__search {
-            font-size: $small-font-size;
+            
             form {
                 button {
                     padding: 0px 8px;
@@ -63,6 +61,7 @@ h1 {
                     padding: 5px 5px 5px 10px;
                     height: 35px;
                     outline: none;
+                    font-size: $default-font-size;
                 }
             }
             button {
@@ -142,26 +141,35 @@ h1 {
             }
         }
         &__badge {
-            width: 2.1rem;
-            height: 2.1rem;
+            width: 1.5rem;
+            height: 1.5rem;
             font-size: $default-font-size;
-            background: url("./images/certificate-solid.svg") no-repeat;
-            padding: 0.28rem 0rem;
+            background: url("./images/circle-solid.svg") no-repeat;
+            padding: 0.2rem 0rem;
         }
         &__link {
             padding: 0!important;
         }
         &__overview {
             font-size: $small-font-size;
-            text-overflow: ellipsis;
             overflow: hidden;
-            white-space: nowrap;
-            height: 2rem;
+            height: 2.8rem;
         }
         &__title {
             font-size: $card-header-font-size;
             display: block;
-            height: 3rem;
+            height: 2rem;
+        }
+        &__more{
+            font-size: $small-font-size;
+            text-align: right;
+            span{
+                font-size: $default-font-size;
+            }
+            a{
+                color:white;
+                text-decoration: none;
+            }
         }
         &__btns {
             font-size: $default-font-size;
@@ -176,19 +184,30 @@ h1 {
     .movie-pagination {
         font-size: 1rem;
         .page-item {
+            
             .active {
                 color: $dark-hover-color;
-            }
+                cursor:pointer;
+
+            } 
+            
             a {
                 position: relative;
+               
                 display: block;
                 padding: 0.5rem 0.75rem;
                 margin-left: -1px;
                 line-height: 1.25;
                 background-color: $dark-banner-color;
                 border: 1px solid $dark-banner-color;
+                &:hover{
+                    color:$light-main-bg-color;
+                    cursor: pointer;
+                }
+                
             }
         }
+       
     }
     /* Pagination Ends */
     /*Movie Detai Ends*/

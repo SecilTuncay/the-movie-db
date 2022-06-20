@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -10,10 +10,9 @@ import MovieDetail from "./components/MovieDetail/MovieDetail";
 import SearchResults from "./components/SearchResults/SearchResults";
 import "./App.scss";
 import Loading from "./components/Loading/Loading";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
-	getColorTheme,
-	setColorTheme
+	getColorTheme
 } from "../src/features/movies/movieSlice";
 
 function App() {

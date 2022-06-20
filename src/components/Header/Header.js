@@ -7,7 +7,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import {
 	fetchAsyncMovies,
 	fetchAsyncSearchMovies,
-	getSearchResults,
+
 	setColorTheme,
 	getColorTheme
 } from "../../features/movies/movieSlice";
@@ -135,7 +135,7 @@ const Header = () => {
 									setTheme(themeColor);
 								}}
 							>
-								{themeColor == "lightMode" ? (
+								{themeColor === "lightMode" ? (
 									<div>
 										<FontAwesomeIcon
 											className="dark-icon p-2"
