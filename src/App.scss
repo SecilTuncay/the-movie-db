@@ -214,40 +214,50 @@ h1 {
        
     }
     /* Pagination Ends */
-    /*Movie Detai Ends*/
-    .detail-card-cont {
+   
+    /*Movie Detail Ends*/
+    .movie-detail{
+        &__image{
+            object-fit: contain;
+        }
+    }
+
+
+    /*Movie Detail Ends*/
+    .detail-card {
         color: $dark-font-default-color;
         height: 50vh;
         background-color: $dark-banner-color;
-        .detail-card-image {
+        &__image {
             object-fit: contain;
         }
         a {
             text-decoration: none;
             font-size: $dark-font-default-color;
         }
-        .detail-card-overview {
+        &__overview {
             font-size: $small-font-size;
             overflow: auto;
             height: 120px;
         }
-        .detail-card-title {
+        &__title {
             font-size: $detail-font-size;
             display: block;
             height: 30px;
         }
-        .detail-card-btns {
+        &__tagline {
+            font-style: italic;
+            font-size: $page-header-font-size;
+        }
+        /* .detail-card-btns {
             font-size: $small-font-size;
             cursor: pointer;
         }
         .detail-card-header {
             border-bottom: 1px dashed rgba(255, 255, 255, 0.178);
             padding: 0.75rem 0rem;
-        }
-        .detail-tagline {
-            font-style: italic;
-            font-size: $page-header-font-size;
-        }
+        } */
+      
     }
     .cast-container {
         .cast-header {
