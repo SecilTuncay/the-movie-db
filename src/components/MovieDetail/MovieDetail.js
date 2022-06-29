@@ -171,14 +171,14 @@ const MovieDetail = (props) => {
                     <Card.Body>
                     
                      
-                        <h1 className="mb-5">{title} <span>({release_date})</span></h1>
-                        <div className="d-flex mb-3 mr-3 align-items-center">
+                        <h1 className="mt-5">{title} <span>({release_date})</span></h1>
+                        <div className="d-flex mt-3 mr-3 align-items-center">
                           {genres && genres.map((genre) => {
-                            return <div className="p-1 mr-2 movie-detail__genre" key={genre.id}>{genre.name}</div>;
+                            return <div className="movie-detail__genre" key={genre.id}>{genre.name}</div>;
                           })}
-                          <div className="d-flex">
+                         
                             <span
-                              className="movie-detail__btns mr-3"
+                              className="movie-detail__btns"
                               onClick={addToFavoritesHandler}
                             >
                               {isFavorite ? (
@@ -197,11 +197,11 @@ const MovieDetail = (props) => {
                                 <FontAwesomeIcon icon="fa-regular fa-bookmark" />
                               )}
                             </span>
-                          </div>
+                          
                         </div>
 
-                        <h2 className="mt-3">{tagline}</h2>
-                        <div className="movie-detail__summary mt-3">
+                        <h2 className="mt-4">{tagline}</h2>
+                        <div className="movie-detail__summary mt-4">
                           <span className="mb-2">Özet : </span>
                           <div>{overview}</div>
                         </div>

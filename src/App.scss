@@ -233,8 +233,11 @@ h1 {
             font-size: $page-header-font-size;
         }
         &__genre {
-            border: 1px #ffffffff dashed;
             border-radius: 0.4rem;
+            background: #343a40d6;
+            height: 2rem;
+            line-height: 1.4rem;
+            padding: 0.3rem 0.4rem;
         }
         &__summary {
             font-size: $page-header-font-size;
@@ -247,7 +250,7 @@ h1 {
             height: 25rem;
             object-fit: cover;
             width: auto;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
             @include boxShadow;
         }
         &__btns {
