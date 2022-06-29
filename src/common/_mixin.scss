@@ -3,3 +3,9 @@
     transition-duration: 750ms;
     transition-property: all;
 }
+
+@mixin boxShadow {
+    box-shadow: 4px 5px 13px 0px rgba(82, 80, 80, 0.57);
+    -webkit-box-shadow: 4px 5px 13px 0px rgba(82, 80, 80, 0.57);
+    -moz-box-shadow: 4px 5px 13px 0px rgba(82, 80, 80, 0.57);
+}

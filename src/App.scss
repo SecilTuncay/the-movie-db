@@ -20,8 +20,6 @@ h1 {
     font-size: $page-header-font-size;
 }
 
-
-
 .switch-icon {
     font-size: 1.5rem;
     line-height: 1.5rem;
@@ -50,7 +48,6 @@ h1 {
             background-color: $dark-banner-color;
         }
         &__search {
-            
             form {
                 button {
                     padding: 0px 8px;
@@ -160,14 +157,14 @@ h1 {
             display: block;
             height: 2rem;
         }
-        &__more{
+        &__more {
             font-size: $small-font-size;
             text-align: right;
-            span{
+            span {
                 font-size: $default-font-size;
             }
-            a{
-                color:white;
+            a {
+                color: white;
                 text-decoration: none;
             }
         }
@@ -183,46 +180,86 @@ h1 {
     /* Pagination */
     .movie-pagination {
         font-size: 0.8rem;
-        @media (max-width:667px) {
+        @media (max-width: 667px) {
             font-size: 0.6rem;
-            
         }
         .page-item {
-            
             .active {
                 color: $dark-hover-color;
-                cursor:pointer;
-
-            } 
-            
+                cursor: pointer;
+            }
             a {
                 position: relative;
-               
                 display: block;
                 padding: 0.5rem 0.3rem;
                 margin-left: -1px;
                 line-height: 1.25;
                 background-color: $dark-banner-color;
                 border: 1px solid $dark-banner-color;
-                &:hover{
-                    color:$light-main-bg-color;
+                &:hover {
+                    color: $light-main-bg-color;
                     cursor: pointer;
                 }
-                
             }
         }
-       
     }
     /* Pagination Ends */
-   
     /*Movie Detail Ends*/
-    .movie-detail{
-        &__image{
-            object-fit: contain;
+    .opacity-layer {
+        background: rgb(9, 182, 194);
+        background: linear-gradient(90deg, rgba(9, 182, 194, 0.5690476874343487) 0%, rgba(9, 182, 194, 0.8967787798713235) 37%, rgba(9, 182, 194, 0.9) 63%, rgba(9, 182, 194, 0.5746499283307073) 100%);
+    }
+    .movie-detail {
+        background-color: #00000000;
+        border: none;
+        &__imdb {
+            img {
+                width: 3.5rem;
+                @include boxShadow;
+            }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            span {
+                font-weight: 200;
+            }
+        }
+        h2 {
+            font-style: italic;
+            font-size: $page-header-font-size;
+        }
+        &__genre {
+            border: 1px #ffffffff dashed;
+            border-radius: 0.4rem;
+        }
+        &__summary {
+            font-size: $page-header-font-size;
+            span {
+                font-weight: bold;
+                display: block;
+            }
+        }
+        &__image {
+            height: 25rem;
+            object-fit: cover;
+            width: auto;
+            border-radius: 1rem;
+            @include boxShadow;
+        }
+        &__btns {
+            background: #343a40d6;
+            border-radius: 50%;
+            padding: 0.3rem 0.4rem;
+            font-size: 1rem;
+            display: block;
+            width: 2rem;
+            text-align: center;
         }
     }
-
-
     /*Movie Detail Ends*/
     .detail-card {
         color: $dark-font-default-color;
@@ -257,7 +294,6 @@ h1 {
             border-bottom: 1px dashed rgba(255, 255, 255, 0.178);
             padding: 0.75rem 0rem;
         } */
-      
     }
     .cast-container {
         .cast-header {
