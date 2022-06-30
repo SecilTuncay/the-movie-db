@@ -1,0 +1,8 @@
+1- geri buton
+2- videoplayer
+
+4- favorites page
+5- watchlist page
+6- light-dark mode
+7- suggestion list
+8- trending movies header güzelle

@@ -46,6 +46,14 @@ h1 {
     .header-app {
         &__navbar {
             background-color: $dark-banner-color;
+            
+        }
+        &__brand{
+            
+            @media (max-width: 575.98px) {
+                font-size: 0.9rem;
+        
+            }
         }
         &__search {
             form {
@@ -156,6 +164,7 @@ h1 {
             font-size: $card-header-font-size;
             display: block;
             height: 2rem;
+            overflow: hidden;
         }
         &__more {
             font-size: $small-font-size;
@@ -226,11 +235,25 @@ h1 {
             font-weight: bold;
             span {
                 font-weight: 200;
+                font-size: 1.5rem;
+            }
+            
+            @media (max-width: 575.98px) { 
+                font-size: 1.5rem;  
+                span {
+                    font-size: 1.5rem;
+                }
             }
         }
         h2 {
             font-style: italic;
             font-size: $page-header-font-size;
+            @media (max-width: 575.98px) { 
+                font-size:1rem;  
+                
+            }
+            
+            
         }
         &__genre {
             border-radius: 0.4rem;
@@ -245,6 +268,10 @@ h1 {
                 font-weight: bold;
                 display: block;
             }
+            @media (max-width: 575.98px) { 
+                font-size:1rem;  
+                
+            }
         }
         &__image {
             height: 25rem;
@@ -252,6 +279,13 @@ h1 {
             width: auto;
             border-radius: 0.5rem;
             @include boxShadow;
+            @media (max-width: 575.98px) { 
+                font-size:1rem;  
+                
+            }
+            @media (min-width: 576px) and (max-width: 1199.98px) { 
+                height: 20rem; 
+            }
         }
         &__btns {
             background: #343a40d6;
@@ -298,34 +332,40 @@ h1 {
             padding: 0.75rem 0rem;
         } */
     }
-    .cast-container {
-        .cast-header {
+    .cast-detail {
+        &__header {
             font-size: $detail-font-size;
             color: $dark-font-default-color;
-            text-align: center;
+            text-align: left;
         }
-        .card-cast-image {
-            object-fit: contain;
-            width: 100%;
-        }
+       
         /* 	.card-cast-cont {
 			border:1px blue dashed
 		}*/
-        .card-cast-actor-cont {
+        &__container {
             color: $dark-font-default-color;
             font-size: $small-font-size;
         }
-        .card-cast-actor {
+        &__image{
+            border-radius: 1rem;
+            object-fit: contain;
+            @media (max-width: 667px) {
+                width:80%;
+            }
+        }
+        &__actor {
             text-align: center;
         }
-        .card-cast-role {
+        &__name{
+           
+            font-size: $default-font-size
+        }
+        &__role {
             font-style: italic;
             text-align: center;
-            height: 15px;
+          
         }
-        .cast-header {
-            text-align: center;
-        }
+        
     }
     /*Movie Detai Ends*/
     /*Error*/
@@ -381,7 +421,7 @@ h1 {
     }
     /*Header*/
     .brand-md {
-        color: $light-font-default-color
+        color: $light-font-default-color;
     }
     .navbar--header {
         background-color: $light-banner-color;
