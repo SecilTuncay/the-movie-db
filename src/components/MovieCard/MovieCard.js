@@ -89,7 +89,10 @@ const MovieCard = (props) => {
       <Card className="movie-card" key={id}>
         <Card.Header className="d-flex justify-content-between movie-card__header">
           <div className="movie-card__badge">
-            <span className="d-block text-center">{vote_average}</span>
+            <span className="d-block text-center">
+              {" "}
+              {vote_average.toPrecision(2)}
+            </span>
           </div>
           <div>
             <span

@@ -24,32 +24,38 @@ import {
 } from "../../features/movies/movieSlice";
 
 import Loading from "../Loading/Loading";
-import { Card } from "react-bootstrap";
+import { Card, Modal } from "react-bootstrap";
 import imdb from "../../images/IMDB_Logo.png";
-import ReactPlayer from "react-player";
+import YouTube from "react-youtube";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 const MovieDetail = (props) => {
   const favMovies = useSelector(getFavoriteMovies);
   const watchListMovies = useSelector(getWatchList);
   const { id } = useParams();
+  const [showVideo, setShowVideo] = useState(false);
+
   console.log(favMovies);
+
+  const opts = {
+    height: "585",
+    width: "960",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+    },
+  };
 
   const dispatch = useDispatch();
   const data = useSelector(getSelectedMovie);
   const credits = useSelector(getSelectedMovieCredit);
   const videos = useSelector(getSelectedMovieVideo);
+
   console.log("file: MovieDetail.js - line 40 - videos", videos);
   const isLoading = useSelector(getIsLoading);
   const [isFavorite, setFavorite] = useState(
     favMovies.some((item) => item.id == id)
   );
-
-  const [isWatchList, setIsWatchList] = useState(
-    watchListMovies.some((item) => item.id == id)
-  );
-  console.log("dd : " + isFavorite);
-  console.log("dd : " + isWatchList);
-
   const {
     title,
     overview,
@@ -63,6 +69,18 @@ const MovieDetail = (props) => {
     imdb_id,
     genres,
   } = data;
+
+  const handleClose = () => setShowVideo(false);
+  const handleShow = () => setShowVideo(true);
+
+  let videoID =
+    videos.results &&
+    videos.results.find((video) => video.name === "Official Trailer").key;
+  console.log("file: MovieDetail.js - line 77 - videoID", videoID);
+
+  const [isWatchList, setIsWatchList] = useState(
+    watchListMovies.some((item) => item.id == id)
+  );
 
   const baseImgUrl = "https://image.tmdb.org/t/p";
   const size = "w500";
@@ -127,7 +145,6 @@ const MovieDetail = (props) => {
   };
 
   let tempBackPath = `${baseImgUrl}/${backgroundSize}${backdrop_path}`;
-  console.log("file: MovieDetail.js - line 42 - tempBackPath", tempBackPath);
 
   useEffect(() => {
     dispatch(fetchAsyncMovieDetail(id));
@@ -163,7 +180,7 @@ const MovieDetail = (props) => {
                         className="movie-detail__image"
                         src={tempMoviePath}
                       ></Card.Img>
-                      <div className="p-3 text-center">
+                      <div className="p-3 d-flex justify-content-center">
                         <a
                           className="movie-detail__imdb"
                           href={`https://www.imdb.com/title/${imdb_id}`}
@@ -175,6 +192,13 @@ const MovieDetail = (props) => {
                             alt="IMDB Page of Movie"
                           />
                         </a>
+
+                        <div
+                          className="movie-detail__trailer"
+                          onClick={handleShow}
+                        >
+                          <FontAwesomeIcon icon="fa-solid fa-video" />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -272,16 +296,23 @@ const MovieDetail = (props) => {
           </div>
         </div>
       </div>
-      <div className="player-wrapper">
-        <ReactPlayer
-          url="https://vimeo.com/243556536"
-          className="react-player"
-          playing
-          width="100%"
-          height="100%"
-        />
-      </div>
-      {/*  <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" /> */}
+      <Modal
+        show={showVideo}
+        fullscreen="lg-down"
+        onHide={handleClose}
+        size="lg"
+        dialogClassName="modal-90w justify-content-center"
+        contentClassName="w-auto trailerContent"
+        centered
+      >
+        <Modal.Body>
+          {videoID ? (
+            <YouTube videoId={videoID} opts={opts} />
+          ) : (
+            <PageNotFound />
+          )}
+        </Modal.Body>
+      </Modal>
     </>
   );
 };

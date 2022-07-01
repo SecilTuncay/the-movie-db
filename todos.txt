@@ -1,6 +1,6 @@
-1- geri buton
-2- videoplayer
 
+
+2- geri buton
 4- favorites page
 5- watchlist page
 6- light-dark mode

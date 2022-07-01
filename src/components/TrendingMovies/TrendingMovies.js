@@ -26,11 +26,11 @@ const TrendingMovies = () => {
   };
 
   const isFavorite = (movieID) => {
-    return favMovies.some((movie) => movie.id === movieID);
+    return favMovies.some((movie) => parseInt(movie.id) === movieID);
   };
 
   const isWatchList = (movieID) => {
-    return watchListMovies.some((movie) => movie.id === movieID);
+    return watchListMovies.some((movie) => parseInt(movie.id) === movieID);
   };
 
   return (
