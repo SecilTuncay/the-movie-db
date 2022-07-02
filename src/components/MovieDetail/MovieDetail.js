@@ -35,7 +35,6 @@ const MovieDetail = (props) => {
   const { id } = useParams();
   const [showVideo, setShowVideo] = useState(false);
 
-  console.log(favMovies);
 
   const opts = {
     height: "585",
@@ -73,10 +72,12 @@ const MovieDetail = (props) => {
   const handleClose = () => setShowVideo(false);
   const handleShow = () => setShowVideo(true);
 
-  let videoID =
-    videos.results &&
-    videos.results.find((video) => video.name === "Official Trailer").key;
-  console.log("file: MovieDetail.js - line 77 - videoID", videoID);
+  let videoID;
+
+  if (videos.results && videos.results.length > 0) {
+    videoID = videos.results.find((video) => (video.name).includes("Official")).key;
+  }
+
 
   const [isWatchList, setIsWatchList] = useState(
     watchListMovies.some((item) => item.id == id)
@@ -192,13 +193,15 @@ const MovieDetail = (props) => {
                             alt="IMDB Page of Movie"
                           />
                         </a>
+                        {videoID &&
+                          <div
+                            className="movie-detail__trailer"
+                            onClick={handleShow}
+                          >
+                            <FontAwesomeIcon icon="fa-solid fa-video" />
+                          </div>
+                        }
 
-                        <div
-                          className="movie-detail__trailer"
-                          onClick={handleShow}
-                        >
-                          <FontAwesomeIcon icon="fa-solid fa-video" />
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -305,13 +308,17 @@ const MovieDetail = (props) => {
         contentClassName="w-auto trailerContent"
         centered
       >
-        <Modal.Body>
-          {videoID ? (
+        {videoID ? (
+          <Modal.Body>
             <YouTube videoId={videoID} opts={opts} />
-          ) : (
+          </Modal.Body>
+        ) : (
+          <Modal.Body>
             <PageNotFound />
-          )}
-        </Modal.Body>
+          </Modal.Body>
+        )
+        }
+
       </Modal>
     </>
   );
