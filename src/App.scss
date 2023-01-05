@@ -243,7 +243,8 @@ h1 {
             width: 65px;
             height: 30px;
             line-height: 32px;
-            background-color:#0b0a0a;
+            background-color:#0b0a0a36;
+            
         
             color: #ffffff;
             border-radius: 0.2rem;
@@ -252,7 +253,7 @@ h1 {
             cursor: pointer;
            @include boxShadow;
            @include transitionProperty;
-            margin-left: 74px;
+           
          
             span{
                 font-size: 0.7rem;
@@ -263,12 +264,6 @@ h1 {
                 @include boxShadowHover;
                 @include transitionProperty;
             }
-            
-              @media (max-width: 575.98px) { 
-                margin-left: 31px;
-              }
-                
-            
         }
         &__imdb {
             img {

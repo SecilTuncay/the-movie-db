@@ -222,8 +222,6 @@ const MovieDetail = (props) => {
                       <Card.Body>
                         <h1 className="mt-3">
                           {title}
-                          {""}
-
                           <span>
                             ({release_date && release_date.split("-")[0]})
                           </span>
@@ -264,7 +262,7 @@ const MovieDetail = (props) => {
 
                         <h2 className="mt-4">{tagline}</h2>
                         <div className="movie-detail__summary mt-4">
-                          <span className="mb-2">Özet : </span>
+                          <span className="mb-2">Summary : </span>
                           <div>{overview}</div>
                         </div>
                       </Card.Body>
@@ -337,87 +335,3 @@ const MovieDetail = (props) => {
 };
 
 export default MovieDetail;
-{
-  /* <div
-className="detail-card d-flex col-sm-12 col-md-12 m-4"
-key={id}
->
-<div>
-  <img
-    className="detail-card__image m-3 rounded"
-    src={tempMoviePath}
-  ></img>
-  <div>
-    <span>website</span>
-    <span>imdb</span>
-  </div>
-</div>
-
-<div className="m-4">
-  <div className="detail-card__title mb-4">{title}</div>
-  <div className="detail-card__tagline mt-4">"{tagline}"</div>
-  <div className="detail-card__overview mt-4">{overview}</div>
-  <div className="detail-card__popularity mt-2">
-    Rating : {vote_average}
-  </div>
-  <div className="detail-card__release mt-1">
-    Release Date : {release_date}
-  </div>
-  <div className="detail-card__release mt-1">{runtime} m</div>
-</div>
-</div> 
-
-
-<Card className="movie-detail">
-                <Card.Body className="d-flex">
-                  <div className="movie-detail__left mr-3">
-                    <Card.Img
-                      className="movie-detail__image"
-                      src={tempMoviePath}
-                    ></Card.Img>
-                    <div className="p-3 text-center">
-                      <a href={`https://www.imdb.com/title/${imdb_id}`} target="_blank">
-                        <img className="img img-fluid mr-2" src={imdb} alt="IMDB Page of Movie" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="movie-detail__right p-3">
-                    <h1 className="mb-5">{title} <span>({release_date})</span></h1>
-                    <div className="d-flex mb-3 mr-3 align-items-center">
-                      {genres && genres.map((genre) => {
-                        return <div className="p-1 mr-2 movie-detail__right_genre" key={genre.id}>{genre.name}</div>;
-                      })}
-                      <div className="d-flex">
-                      <span
-                        className="movie-detail__btns mr-3"
-                        onClick={addToFavoritesHandler}
-                      >
-                        {isFavorite ? (
-                          <FontAwesomeIcon icon="fa-solid fa-heart" />
-                        ) : (
-                          <FontAwesomeIcon icon="fa-regular fa-heart" />
-                        )}
-                      </span>
-                      <span
-                        className="movie-detail__btns"
-                        onClick={addToWatchlistHandler}
-                      >
-                        {isWatchList ? (
-                          <FontAwesomeIcon icon="fa-solid fa-bookmark" />
-                        ) : (
-                          <FontAwesomeIcon icon="fa-regular fa-bookmark" />
-                        )}
-                      </span>
-                    </div>
-                    </div>
-                    
-                    <h2 className="mt-3">{tagline}</h2>
-                    <div className="movie-detail__summary mt-3">
-                      <span className="mb-2">Özet : </span>
-                       <div>{overview}</div>
-                    </div>
-                  </div>
-                </Card.Body>
-              </Card>
-*/
-}
