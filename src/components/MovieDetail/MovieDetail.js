@@ -24,7 +24,7 @@ import {
 } from "../../features/movies/movieSlice";
 
 import Loading from "../Loading/Loading";
-import { Button, Card, Modal } from "react-bootstrap";
+import { Card, Modal } from "react-bootstrap";
 import imdb from "../../images/IMDB_Logo.png";
 import YouTube from "react-youtube";
 import PageNotFound from "../PageNotFound/PageNotFound";
@@ -38,8 +38,8 @@ const MovieDetail = (props) => {
   const navigate = useNavigate();
 
   const opts = {
-    height: "585",
-    width: "960",
+    height: "550",
+    width: "100%",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
@@ -177,7 +177,7 @@ const MovieDetail = (props) => {
             <>
               <div className="row mt-3">
                 <div
-                  className="movie-detail__btn d-flex align-items-center p-1 position-relative"
+                  className="movie-detail__btn d-flex align-items-center p-1 position-relative ml-2"
                   onClick={() => navigate(-1)}
                 >
                   <span className="d-block mr-1">
@@ -311,6 +311,7 @@ const MovieDetail = (props) => {
           </div>
         </div>
       </div>
+      <div className="youtube-wrapper"></div>
       <Modal
         show={showVideo}
         fullscreen="lg-down"

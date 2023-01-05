@@ -36,7 +36,10 @@ h1 {
 }
 /*MODAL*/
 .trailerContent {
-    background-color:$light-font-default-color!important ;
+    background-color:$light-font-default-color!important;
+    border:1px red solid;
+    height: 585px;
+    width: 960px
 }
 .modal-backdrop.show {
     opacity: 0.8!important;
@@ -231,7 +234,8 @@ h1 {
         }
     }
     /* Pagination Ends */
-    /*Movie Detail Ends*/
+    /*Movie Detail Starts*/
+    
     .opacity-layer {
         background: rgb(9, 182, 194);
         background: linear-gradient(90deg, rgba(9, 182, 194, 0.5690476874343487) 0%, rgba(9, 182, 194, 0.8967787798713235) 37%, rgba(9, 182, 194, 0.9) 63%, rgba(9, 182, 194, 0.5746499283307073) 100%);
