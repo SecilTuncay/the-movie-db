@@ -9,3 +9,9 @@
     -webkit-box-shadow: 5px 6px 13px 3px rgba(66, 66, 66, 0.74);
     -moz-box-shadow: 5px 6px 13px 3px rgba(66, 66, 66, 0.74);
 }
+
+@mixin boxShadowHover {
+    box-shadow: 5px 6px 13px 3px rgba(230, 228, 228, 0.74);
+    -webkit-box-shadow: 5px 6px 13px 3px rgba(230, 228, 228, 0.74);
+    -moz-box-shadow: 5px 6px 13px 3px rgba(230, 228, 228, 0.74);
+}

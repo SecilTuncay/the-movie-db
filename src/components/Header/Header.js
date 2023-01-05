@@ -7,8 +7,8 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import {
   fetchAsyncMovies,
   fetchAsyncSearchMovies,
-  setColorTheme,
-  getColorTheme,
+  // setColorTheme,
+  // getColorTheme,
 } from "../../features/movies/movieSlice";
 
 import { useNavigate } from "react-router-dom";
@@ -16,15 +16,14 @@ import { useNavigate } from "react-router-dom";
 library.add(fas);
 
 const Header = () => {
-  const themeColor = useSelector(getColorTheme);
-  console.log("themeColor: ", typeof themeColor);
+  // const themeColor = useSelector(getColorTheme);
+  // console.log("themeColor: ", typeof themeColor);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [term, setTerm] = useState("");
   //	const [suggestions, setSuggestions] = useState([]);
-  const [theme, setTheme] = useState(themeColor);
-  console.log("theme: ", theme);
+  //const [theme, setTheme] = useState(themeColor);
 
   useEffect(() => {
     dispatch(fetchAsyncMovies());
@@ -129,7 +128,7 @@ const Header = () => {
 										})}
 								</div> */}
               </form>
-              <div
+              {/* <div
                 className="switch-icon"
                 onClick={() => {
                   dispatch(setColorTheme(themeColor));
@@ -153,7 +152,7 @@ const Header = () => {
                     <span className="d-lg-none">Day</span>
                   </div>
                 )}
-              </div>
+              </div> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

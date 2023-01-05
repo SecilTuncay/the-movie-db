@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { far } from "@fortawesome/free-regular-svg-icons";
 import errorImage from "../../images/image-error.png";
 import {
   fetchAsyncMovieDetail,
@@ -24,17 +24,18 @@ import {
 } from "../../features/movies/movieSlice";
 
 import Loading from "../Loading/Loading";
-import { Card, Modal } from "react-bootstrap";
+import { Button, Card, Modal } from "react-bootstrap";
 import imdb from "../../images/IMDB_Logo.png";
 import YouTube from "react-youtube";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import { AiFillBackward } from "react-icons/ai";
 
 const MovieDetail = (props) => {
   const favMovies = useSelector(getFavoriteMovies);
   const watchListMovies = useSelector(getWatchList);
   const { id } = useParams();
   const [showVideo, setShowVideo] = useState(false);
-
+  const navigate = useNavigate();
 
   const opts = {
     height: "585",
@@ -75,9 +76,10 @@ const MovieDetail = (props) => {
   let videoID;
 
   if (videos.results && videos.results.length > 0) {
-    videoID = videos.results.find((video) => (video.name).includes("Official")).key;
+    videoID = videos.results.find((video) =>
+      video.name.includes("Official")
+    ).key;
   }
-
 
   const [isWatchList, setIsWatchList] = useState(
     watchListMovies.some((item) => item.id == id)
@@ -172,93 +174,105 @@ const MovieDetail = (props) => {
           {isLoading ? (
             <Loading />
           ) : (
-            <div className="row pt-4">
-              <Card className="movie-detail">
-                <div className="row no-gutters">
-                  <div className="col-sm-5 p-4">
-                    <div className="text-center">
-                      <Card.Img
-                        className="movie-detail__image"
-                        src={tempMoviePath}
-                      ></Card.Img>
-                      <div className="p-3 d-flex justify-content-center">
-                        <a
-                          className="movie-detail__imdb"
-                          href={`https://www.imdb.com/title/${imdb_id}`}
-                          target="_blank"
-                        >
-                          <img
-                            className="img img-fluid mr-2"
-                            src={imdb}
-                            alt="IMDB Page of Movie"
-                          />
-                        </a>
-                        {videoID &&
-                          <div
-                            className="movie-detail__trailer"
-                            onClick={handleShow}
+            <>
+              <div className="row mt-3">
+                <div
+                  className="movie-detail__btn d-flex align-items-center p-1 position-relative"
+                  onClick={() => navigate(-1)}
+                >
+                  <span className="d-block mr-1">
+                    <AiFillBackward />
+                  </span>
+                  <span className="d-block">Back</span>
+                </div>
+              </div>
+              <div className="row pt-2">
+                <Card className="movie-detail">
+                  <div className="row no-gutters">
+                    <div className="col-sm-5 p-4">
+                      <div className="text-center">
+                        <Card.Img
+                          className="movie-detail__image"
+                          src={tempMoviePath}
+                        ></Card.Img>
+                        <div className="p-3 d-flex justify-content-center">
+                          <a
+                            className="movie-detail__imdb"
+                            href={`https://www.imdb.com/title/${imdb_id}`}
+                            target="_blank"
                           >
-                            <FontAwesomeIcon icon="fa-solid fa-video" />
-                          </div>
-                        }
-
+                            <img
+                              className="img img-fluid mr-2"
+                              src={imdb}
+                              alt="IMDB Page of Movie"
+                            />
+                          </a>
+                          {videoID && (
+                            <div
+                              className="movie-detail__trailer"
+                              onClick={handleShow}
+                            >
+                              <FontAwesomeIcon icon="fa-solid fa-video" />
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-sm-7">
-                    <Card.Body>
-                      <h1 className="mt-3">
-                        {title}
-                        {""}
+                    <div className="col-sm-7">
+                      <Card.Body>
+                        <h1 className="mt-3">
+                          {title}
+                          {""}
 
-                        <span>
-                          ({release_date && release_date.split("-")[0]})
-                        </span>
-                      </h1>
-                      <div className="d-flex mt-3 align-items-center">
-                        {genres &&
-                          genres.map((genre) => {
-                            return (
-                              <div
-                                className="movie-detail__genre mr-2"
-                                key={genre.id}
-                              >
-                                {genre.name}
-                              </div>
-                            );
-                          })}
-                        <span
-                          className="movie-detail__btns mr-2"
-                          onClick={addToFavoritesHandler}
-                        >
-                          {isFavorite ? (
-                            <FontAwesomeIcon icon="fa-solid fa-heart" />
-                          ) : (
-                            <FontAwesomeIcon icon="fa-regular fa-heart" />
-                          )}
-                        </span>
-                        <span
-                          className="movie-detail__btns"
-                          onClick={addToWatchlistHandler}
-                        >
-                          {isWatchList ? (
-                            <FontAwesomeIcon icon="fa-solid fa-bookmark" />
-                          ) : (
-                            <FontAwesomeIcon icon="fa-regular fa-bookmark" />
-                          )}
-                        </span>
-                      </div>
+                          <span>
+                            ({release_date && release_date.split("-")[0]})
+                          </span>
+                        </h1>
+                        <div className="d-flex mt-3 align-items-center">
+                          {genres &&
+                            genres.map((genre) => {
+                              return (
+                                <div
+                                  className="movie-detail__genre mr-2"
+                                  key={genre.id}
+                                >
+                                  {genre.name}
+                                </div>
+                              );
+                            })}
+                          <span
+                            className="movie-detail__btns mr-2"
+                            onClick={addToFavoritesHandler}
+                          >
+                            {isFavorite ? (
+                              <FontAwesomeIcon icon="fa-solid fa-heart" />
+                            ) : (
+                              <FontAwesomeIcon icon="fa-regular fa-heart" />
+                            )}
+                          </span>
+                          <span
+                            className="movie-detail__btns"
+                            onClick={addToWatchlistHandler}
+                          >
+                            {isWatchList ? (
+                              <FontAwesomeIcon icon="fa-solid fa-bookmark" />
+                            ) : (
+                              <FontAwesomeIcon icon="fa-regular fa-bookmark" />
+                            )}
+                          </span>
+                        </div>
 
-                      <h2 className="mt-4">{tagline}</h2>
-                      <div className="movie-detail__summary mt-4">
-                        <span className="mb-2">Özet : </span>
-                        <div>{overview}</div>
-                      </div>
-                    </Card.Body>
+                        <h2 className="mt-4">{tagline}</h2>
+                        <div className="movie-detail__summary mt-4">
+                          <span className="mb-2">Özet : </span>
+                          <div>{overview}</div>
+                        </div>
+                      </Card.Body>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            </div>
+                </Card>
+              </div>
+            </>
           )}
         </div>
       </div>
@@ -316,9 +330,7 @@ const MovieDetail = (props) => {
           <Modal.Body>
             <PageNotFound />
           </Modal.Body>
-        )
-        }
-
+        )}
       </Modal>
     </>
   );

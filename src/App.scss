@@ -239,13 +239,50 @@ h1 {
     .movie-detail {
         background-color: #00000000;
         border: none;
+        &__btn{
+            width: 65px;
+            height: 30px;
+            line-height: 32px;
+            background-color:#0b0a0a;
+        
+            color: #ffffff;
+            border-radius: 0.2rem;
+            font-size: 1.3rem;
+            text-align: center;
+            cursor: pointer;
+           @include boxShadow;
+           @include transitionProperty;
+            margin-left: 74px;
+         
+            span{
+                font-size: 0.7rem;
+            }
+            &:hover{
+                background-color:#ffffff;
+                color: #14b2bc;
+                @include boxShadowHover;
+                @include transitionProperty;
+            }
+            
+              @media (max-width: 575.98px) { 
+                margin-left: 31px;
+              }
+                
+            
+        }
         &__imdb {
             img {
                 width: 3.5rem;
                 @include boxShadow;
+                @include transitionProperty;
+                &:hover {
+                    @include boxShadowHover;
+                    @include transitionProperty;
+                }
             }
             &:hover {
                 text-decoration: none;
+              
             }
         }
         &__trailer  {
@@ -256,6 +293,13 @@ h1 {
             padding: 0rem 1rem;
             cursor: pointer;
             @include boxShadow;
+            @include transitionProperty;
+            &:hover{
+                background-color:#ffffff;
+                color: #14b2bc;
+                @include boxShadowHover;
+                @include transitionProperty;
+            }
         }
         
         h1 {
@@ -289,6 +333,10 @@ h1 {
             height: 2rem;
             line-height: 1.4rem;
             padding: 0.3rem 0.4rem;
+            @media (max-width: 575.98px) { 
+                font-size:0.5rem;  
+                
+            }
         }
         &__summary {
             font-size: $page-header-font-size;
@@ -365,6 +413,10 @@ h1 {
             font-size: $detail-font-size;
             color: $dark-font-default-color;
             text-align: left;
+            @media (max-width: 575.98px) { 
+                text-align: center;
+                
+            }
         }
        
         /* 	.card-cast-cont {
