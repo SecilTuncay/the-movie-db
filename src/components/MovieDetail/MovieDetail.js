@@ -318,7 +318,7 @@ const MovieDetail = (props) => {
         onHide={handleClose}
         size="lg"
         dialogClassName="modal-90w justify-content-center"
-        contentClassName="w-auto trailerContent"
+        contentClassName="trailerContent"
         centered
       >
         {videoID ? (
