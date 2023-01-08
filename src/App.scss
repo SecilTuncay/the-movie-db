@@ -637,6 +637,10 @@ h1 {
   }
   /*Movie Card Ends*/
   /*Movie Detai Ends*/
+  .detail-wrapper {
+    padding-bottom: 2rem;
+    background-color: red;
+  }
   .detail-card-cont {
     color: $light-font-default-color;
     height: 50vh;

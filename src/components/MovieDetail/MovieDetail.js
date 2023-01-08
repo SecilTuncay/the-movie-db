@@ -274,7 +274,10 @@ const MovieDetail = (props) => {
           )}
         </div>
       </div>
-      <div className="container mr-auto mt-4">
+      <div
+        className="container mr-auto mt-4"
+        style={{ "padding-bottom": "5rem" }}
+      >
         <div className="cast-detail__header mb-2">Cast</div>
         <div className="row">
           <div className="cast-detail">
