@@ -18,7 +18,7 @@ const FavoriteMovies = () => {
   };
   return (
     <>
-      <div className="container movie-wrapper">
+      <div className="container movie-wrapper" id="fav">
         <h1 className="mt-4 text-center">My Favorite Movies</h1>
         <div className="row justify-content-start">
           {favMovies &&

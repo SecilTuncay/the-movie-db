@@ -34,7 +34,7 @@ const TrendingMovies = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container movie-wrapper">
       <h1 className="my-4 text-center">Trending Movies</h1>
 
       <div className="row">
