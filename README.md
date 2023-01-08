@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+React JS | Redux | Bootstrap | Sass project.
+You can list trending movies. You can add/remove to your favorites/watchlist. Search for movies from movie database. 
+
+![themoviedbmain](https://user-images.githubusercontent.com/32872209/211185805-d34ca337-c4ca-4416-8a16-02725a56f882.png)
+![detail](https://user-images.githubusercontent.com/32872209/211185807-04532823-3290-45f0-9818-ed98c0187409.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
